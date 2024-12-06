@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advertising - Forbella Business Journal</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/example.css">
+    <meta name="description" content="Advertise with Forbella Business Journal and reach a targeted audience interested in business, entrepreneurship, and management in Africa.">
+    <style>
+        #notification {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1000;
+            opacity: 1;
+            transition: opacity 1s ease-out;
+        }
+        .notification-success {
+            background-color: #4caf50;
+            color: white;
+        }
+        .notification-error {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#">
+            <img src="images/powersale logo.png" alt="Forbella Business Journal Logo" class="logo">
+            Forbella Business Journal
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="archive.html">Archive</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="subscription.html">Subscribe</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="purchase.html">Purchase</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="advertising.html">Advertising</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="submission.html">Submission</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <section class="advertising">
+            <div class="advertising-header">
+                <h1>Advertise with Us</h1>
+                <p>Reach a targeted audience interested in business, entrepreneurship, and management in Africa. Advertise with Forbella Business Journal and grow your business.</p>
+            </div>
+            <div class="guidelines">
+                <h2>Advertising Guidelines</h2>
+                <ul>
+                    <li>Advertisements should be relevant to the topics of business, entrepreneurship, and management.</li>
+                    <li>All advertisements must adhere to ethical standards and avoid misleading information.</li>
+                    <li>Advertisements should not contain offensive or inappropriate content.</li>
+                    <li>We reserve the right to reject any advertisement that does not meet our guidelines.</li>
+                </ul>
+            </div>
+            <form id="advertising-form" method="post" enctype="multipart/form-data">
+                <div class="form-section">
+                    <h2>Contact Information</h2>
+                    <div class="form-group">
+                        <label for="company-name">Company Name:</label>
+                        <input type="text" id="company-name" name="company-name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-name">Contact Name:</label>
+                        <input type="text" id="contact-name" name="contact-name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Contact Email:</label>
+                        <input type="email" id="contact-email" name="contact-email" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <h2>Advertisement Details</h2>
+                    <div class="form-group">
+                        <label for="ad-description">Advertisement Description:</label>
+                        <textarea id="ad-description" name="ad-description" rows="5" class="form-control" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="ad-duration">Advertisement Duration:</label>
+                        <select id="ad-duration" name="ad-duration" class="form-control">
+                            <option value="1-month">1 Month - $100</option>
+                            <option value="3-months">3 Months - $250</option>
+                            <option value="6-months">6 Months - $450</option>
+                            <option value="12-months">12 Months - $800</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <h2>Payment Information</h2>
+                    <div class="form-group">
+                        <label for="card-number">Card Number:</label>
+                        <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="expiry-date">Expiry Date:</label>
+                        <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV:</label>
+                        <input type="text" id="cvv" name="cvv" placeholder="123" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Submit Advertisement</button>
+                </div>
+            </form>
+            <div id="notification" class="alert"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Forbella Business Journal. All rights reserved.</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('advertising-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(this);
+            const notification = document.getElementById('notification');
+
+            fetch('advertising.php', {
+                method: 'POST',
+                body: formData
+            }).then(response => response.json())
+            .then(data => {
+                notification.style.display = 'block';
+                notification.className = 'alert';
+                
+                if (data.status === 'success') {
+                    notification.className += ' alert-success';
+                    notification.innerHTML = data.message;
+                    document.getElementById('advertising-form').reset(); // Reset the form
+                } else {
+                    notification.className += ' alert-danger';
+                    notification.innerHTML = data.message;
+                }
+
+                setTimeout(() => {
+                    notification.style.opacity = '0'; // Start fade-out
+                    setTimeout(() => {
+                        notification.style.display = 'none';
+                        notification.style.opacity = '1'; // Reset opacity for future use
+                    }, 1000); // Duration of fade-out effect
+                }, 3000); // Delay before starting fade-out
+            }).catch(error => {
+                console.error('Error:', error);
+                notification.style.display = 'block';
+                notification.className = 'alert alert-danger';
+                notification.innerHTML = 'An error occurred while submitting the form.';
+                
+                setTimeout(() => {
+                    notification.style.opacity = '0'; // Start fade-out
+                    setTimeout(() => {
+                        notification.style.display = 'none';
+                        notification.style.opacity = '1'; // Reset opacity for future use
+                    }, 1000); // Duration of fade-out effect
+                }, 3000); // Delay before starting fade-out
+            });
+        });
+    </script>
+</body>
+</html>

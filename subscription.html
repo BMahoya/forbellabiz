@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe - Forbella Business Journal</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/example.css">
+    <style>
+        #notification {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1000;
+            opacity: 1;
+            transition: opacity 1s ease-out;
+        }
+        .notification-success {
+            background-color: #4caf50;
+            color: white;
+        }
+        .notification-error {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#">
+            <img src="images/powersale logo.png" alt="Forbella Business Journal Logo" class="logo">
+            Forbella Business Journal
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="archive.html">Archive</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="subscription.html">Subscribe</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="purchase.html">Purchase</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="advertising.html">Advertising</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="submission.html">Submission</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="subscription">
+            <h1>Subscribe to Forbella Business Journal</h1>
+            <form id="subscription-form" method="post">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="plan">Subscription Plan:</label>
+                    <select id="plan" name="plan" class="form-control">
+                        <option value="monthly">Monthly</option>
+                        <option value="yearly">Yearly</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+            <div id="notification" class="alert"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Forbella Business Journal. All rights reserved.</p>
+    </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('subscription-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(this);
+            const notification = document.getElementById('notification');
+
+            fetch('subscribe.php', {
+                method: 'POST',
+                body: formData
+            }).then(response => response.json())
+            .then(data => {
+                notification.style.display = 'block';
+                notification.className = 'alert';
+                
+                if (data.status === 'success') {
+                    notification.className += ' alert-success';
+                    notification.innerHTML = data.message;
+                    document.getElementById('subscription-form').reset(); // Reset the form
+                } else {
+                    notification.className += ' alert-danger';
+                    notification.innerHTML = data.message;
+                }
+
+                setTimeout(() => {
+                    notification.style.opacity = '0'; // Start fade-out
+                    setTimeout(() => {
+                        notification.style.display = 'none';
+                        notification.style.opacity = '1'; // Reset opacity for future use
+                    }, 1000); // Duration of fade-out effect
+                }, 3000); // Delay before starting fade-out
+            }).catch(error => {
+                console.error('Error:', error);
+                notification.style.display = 'block';
+                notification.className = 'alert alert-danger';
+                notification.innerHTML = 'An error occurred while submitting the form.';
+                
+                setTimeout(() => {
+                    notification.style.opacity = '0'; // Start fade-out
+                    setTimeout(() => {
+                        notification.style.display = 'none';
+                        notification.style.opacity = '1'; // Reset opacity for future use
+                    }, 1000); // Duration of fade-out effect
+                }, 3000); // Delay before starting fade-out
+            });
+        });
+    </script>
+</body>
+</html>

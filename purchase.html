@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Articles - Forbella Business Journal</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/example.css">
+    <meta name="description" content="Purchase articles from Forbella Business Journal and access the latest research on business, entrepreneurship, and management in Africa.">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#">
+            <img src="images/powersale logo.png" alt="Forbella Business Journal Logo" class="logo">
+            Forbella Business Journal
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="archive.html">Archive</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="subscription.html">Subscribe</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="purchase.html">Purchase</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="advertising.html">Advertising</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="submission.html">Submission</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <section class="purchase">
+            <div class="purchase-header">
+                <h1>Purchase Articles</h1>
+                <p>Access the latest research on business, entrepreneurship, and management in Africa. Purchase individual articles securely and easily.</p>
+            </div>
+            <form id="purchase-form">
+                <div class="form-section">
+                    <h2>Article Information</h2>
+                    <div class="form-group">
+                        <label for="article-id">Article ID:</label>
+                        <input type="text" id="article-id" name="article-id" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <h2>Payment Information</h2>
+                    <div class="form-group">
+                        <label for="card-number">Card Number:</label>
+                        <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="expiry-date">Expiry Date:</label>
+                        <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV:</label>
+                        <input type="text" id="cvv" name="cvv" placeholder="123" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Purchase Now</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Forbella Business Journal. All rights reserved.</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

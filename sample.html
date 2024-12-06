@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit an Article - Forbella Business Journal</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/example.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#">
+            <img src="images/logo.png" alt="Forbella Business Journal Logo" class="logo">
+            Forbella Business Journal
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="archive.html">Archive</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="subscription.html">Subscribe</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="purchase.html">Purchase</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="advertising.html">Advertising</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="submission.html">Submission</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <section>
+            <h2>Author Submission Guidelines</h2>
+            <p>Please read the following guidelines before submitting your article:</p>
+            <ul>
+                <li>Articles should be between 1,000 and 5,000 words.</li>
+                <li>All submissions must be original and not published elsewhere.</li>
+                <li>Include a brief abstract of your article (150-200 words).</li>
+                <li>Follow APA formatting and citation style.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Submit Your Article</h2>
+            <form id="submission-form" action="sample.php" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="author-name">Name:</label>
+                    <input type="text" id="author-name" name="author-name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="article-title">Article Title:</label>
+                    <input type="text" id="article-title" name="article-title" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="abstract">Abstract:</label>
+                    <textarea id="abstract" name="abstract" rows="5" class="form-control" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="article-file">Upload Article (PDF):</label>
+                    <input type="file" id="article-file" name="article-file" accept=".pdf" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Forbella Business Journal. All rights reserved.</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
